@@ -1,30 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.css';
 import './App.css';
 
-import Greeting from './Greeting';
+import { Header } from './components/Header/Header';
+import { Body } from './components/Body/Body';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: 'John',
+export function App() {
+    const [selectedCategory, setSelectedCategory] = useState('');
+
+    const handleCategoryClick = (event) => {
+        const category = event.target.value;
+        setSelectedCategory(category);
     };
-  }
 
-  onChangeName = newName => this.setState({ name: newName })
-
-  render() {
     return (
-      <div className="App">
-        <Greeting name={this.state.name} />
-        <button onClick={() => this.onChangeName('John')}>John</button>
-        <button onClick={() => this.onChangeName('Ivan')}>Ivan</button>
-        <button onClick={() => this.onChangeName('Alice')}>Alice</button>
-        <button onClick={() => this.onChangeName('David')}>David</button>
-      </div>
+        <div>
+            <Header handleCategoryClick={handleCategoryClick} />
+            <Body selectedCategory={selectedCategory} />
+        </div>
     );
-  }
 }
 
 export default App;

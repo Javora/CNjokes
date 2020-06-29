@@ -104,10 +104,13 @@ li {
     outline: none;
     text-decoration: underline;
     text-decoration-color: red;
-
 }
 
 .categories:hover {
     text-decoration: underline;
     text-decoration-color: red;
+}
+
+:target {
+    color: red;
 }

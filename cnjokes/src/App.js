@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Greeting from './Greeting';
+import Joke from './Joke';
+import NoJoke from './NoJokes';
+import Categories from './Categories';
+import Search from './search';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +25,10 @@ class App extends Component {
         <button onClick={() => this.onChangeName('Ivan')}>Ivan</button>
         <button onClick={() => this.onChangeName('Alice')}>Alice</button>
         <button onClick={() => this.onChangeName('David')}>David</button>
+        <Joke url="https://api.chucknorris.io/jokes/random"></Joke>
+        <NoJoke></NoJoke>
+        <Categories></Categories>
+        <Search></Search>
       </div>
     );
   }
